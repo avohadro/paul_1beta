@@ -1,2 +1,5 @@
 aiogram
 huggingface_hub
+langchain
+langchain-community
+faiss-cpu
