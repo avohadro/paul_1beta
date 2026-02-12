@@ -1,19 +1,14 @@
-# Используем официальный образ Python
-FROM python:3.9
+# Используем самую легкую версию Python
+FROM python:3.10-slim
 
-# Создаем рабочего пользователя (требование Hugging Face)
-RUN useradd -m -u 1000 user
-USER user
-ENV PATH="/home/user/.local/bin:${PATH}"
-
-# Устанавливаем рабочую директорию
+# Устанавливаем рабочую папку
 WORKDIR /app
 
-# Копируем файлы проекта
-COPY --chown=user . /app
+# Копируем только файлы проекта
+COPY . .
 
-# Устанавливаем зависимости
-RUN pip install --no-cache-dir -r requirements.txt
+# Устанавливаем минимум библиотек без кэша (для экономии места)
+RUN pip install --no-cache-dir aiogram huggingface_hub
 
-# Запускаем бота
+# Запускаем скрипт
 CMD ["python", "main.py"]
