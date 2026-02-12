@@ -1,6 +1,2 @@
 aiogram
 huggingface_hub
-langchain-community
-faiss-cpu
-sentence-transformers
-langchain-huggingface
