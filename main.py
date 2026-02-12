@@ -23,16 +23,16 @@ with open('data.json', 'r', encoding='utf-8') as f:
         raw_messages = [data]
 
 texts = []
-    for msg in raw_messages:
-        if isinstance(msg, dict):
-            t = msg.get('text', '')
-            # Если текст пришел списком (бывает в некоторых API), склеиваем его
-            if isinstance(t, list):
-                t = "".join([str(part) for part in t])
-            if t: 
-                texts.append(str(t))
-        elif isinstance(msg, str):
-            texts.append(msg)
+for msg in raw_messages:
+    if isinstance(msg, dict):
+        t = msg.get('text', '')
+        # Если текст пришел списком (бывает в некоторых API), склеиваем его
+        if isinstance(t, list):
+            t = "".join([str(part) for part in t])
+        if t: 
+            texts.append(str(t))
+    elif isinstance(msg, str):
+        texts.append(msg)
 
 def get_style(query):
     # Берем 3 случайных примера из вашего JSON для имитации стиля
