@@ -6,7 +6,7 @@ from aiogram import Bot, Dispatcher, types
 from huggingface_hub import InferenceClient
 
 # Ключи из Environment Variables
-TG_TOKEN = os.getenv("TELEGRAM_TOKEN")
+TG_TOKEN = os.getenv("TG_TOKEN")
 HF_TOKEN = os.getenv("HF_TOKEN")
 
 client = InferenceClient(token=HF_TOKEN)
