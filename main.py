@@ -47,6 +47,7 @@ dp = Dispatcher()
 
 @dp.message()
 async def chat(message: types.Message):
+    print(f"Получено сообщение: {message.text}")
     style_context = get_style(message.text)
     # Формируем промпт для нейросети
     prompt = f"Ты участник сообщества. Твои примеры стиля:\n{style_context}\n\nПользователь пишет: {message.text}\nТвой ответ в этом стиле:"
